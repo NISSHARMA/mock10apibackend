@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
     const token = req.headers.authorization
 
     if (token) {
-        const decoded = jwt.verify(token, process.env.SECRET)
+        const decoded = jwt.verify(token, Mock10)
         if (decoded) {
             const body1 = req.body
             body1.userID = decoded.userID
