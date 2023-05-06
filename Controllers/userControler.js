@@ -25,7 +25,7 @@ const LoginUser = async (req, res) => {
         if (user) {
             bcrypt.compare(password, user.password, (err, result) => {
                 if (result) {
-                    res.status(200).send({ "msg": "Login Successfull", "token": jwt.sign({ "userID": user._id }, Mock10) })
+                    res.status(200).send({ "msg": "Login Successfull", "token": jwt.sign({ "userID": user._id }, process.env.SECRET) })
                 } else {
                     res.status(400).send({ "msg": "Wrong Credential" })
                 }
